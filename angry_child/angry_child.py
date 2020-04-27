@@ -3,6 +3,7 @@ import os
 
 
 # Complete the angryChildren function below.
+# Complete the angryChildren function below.
 def angryChildren(k, packets):
     # sorting
     packets.sort()
@@ -12,6 +13,7 @@ def angryChildren(k, packets):
         sub.append(packets[i] - packets[i - 1])
     # cal unfairness sum temp
     res_temp = []
+    # n-1 items
     for i in range(k - 2, len(sub)):
         temp = 0
         k_val = []
@@ -19,6 +21,7 @@ def angryChildren(k, packets):
         end = i+1
         for j in range(begin, end):
             k_val.append(sub[j])
+         # k items
         for j in range(k-1):
             mul = (j+1) * (k-1-j)
             temp += mul* k_val[j]
@@ -29,7 +32,7 @@ def angryChildren(k, packets):
         if res > i:
             res = i
     return res
-
+# Bad resuls = k*n + nlogn
 
 if __name__ == '__main__':
-    print(angryChildren(5, [4504,1520,5857,4094,4157,3902,822,6643,2422,7288,8245,9948,2822,1784,7802,3142,9739,5629,5413,7232]))
+    print(angryChildren(3, [10,100,300,200,1000,20,30]))
